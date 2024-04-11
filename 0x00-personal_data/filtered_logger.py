@@ -5,6 +5,8 @@ function called filter_datum that returns the log message obfuscated
 
 from typing import List
 import logging
+import mysql.connector
+import os
 import re
 
 
