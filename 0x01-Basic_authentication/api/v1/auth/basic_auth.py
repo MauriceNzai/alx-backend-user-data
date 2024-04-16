@@ -8,4 +8,3 @@ class BasicAuth(Auth):
     Basic authentication class.
     """
     pass
-
