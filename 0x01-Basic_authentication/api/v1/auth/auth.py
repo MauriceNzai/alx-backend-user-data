@@ -4,6 +4,7 @@ The base authentication module.
 """
 from flask import request
 from typing import List, TypeVar
+import fnmatch
 
 
 class Auth:
@@ -17,7 +18,17 @@ class Auth:
             path :- the url to check
             excluded_paths :- list of excluded paths
         """
-        return False
+        if path is None:
+            return True
+        if not excluded_paths or excluded_paths is None:
+            return True
+        for excluded_path in excluded_paths:
+            if path[-1] != "/":
+                path = path + "/"
+            if fnmatch.fnmatch(path, excluded_path):
+                return False
+            else:
+                return True
 
     def authorization_header(self, request=None) -> str:
         """
