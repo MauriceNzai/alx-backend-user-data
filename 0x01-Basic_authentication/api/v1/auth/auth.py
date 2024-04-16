@@ -18,13 +18,11 @@ class Auth:
         """
         return False
 
-
     def authorization_header(self, request=None) -> str:
         """
         Method to get authorization header.
         """
         return None
-
 
     def current_user(self, request=None) -> TypeVar('User'):
         """
