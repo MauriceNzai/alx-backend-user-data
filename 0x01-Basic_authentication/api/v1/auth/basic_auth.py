@@ -43,23 +43,23 @@ class BasicAuth(Auth):
             except (binascii.Error, UnicodeDecodeError):
                 return None
 
-    def extract_user_credentials(self,
-            decoded_base64_authorization_header: str) -> Tuple[str, str]:
+    def extract_user_credentials(
+            self, decoded_base64_authorization_header: str) -> Tuple[str, str]:
         """
         Extracts user credentials from the base64-decoded authorization header
         """
         if type(decoded_base64_authorization_header) == str:
             pattern = r'(?P<user>[^:]+):(?P<password>.+)'
-            field_match = re.fullmatch(pattern,
-                decoded_base64_authorization_header.strip())
+            field_match = re.fullmatch(
+                    pattern, decoded_base64_authorization_header.strip())
             if field_match is not None:
                 user = field_match.group('user')
                 password = field_match.group('password')
                 return user, password
         return None, None
 
-    def user_object_from_credentials(self, user_email: str,
-            user_pwd: str) -> TypeVar('User'):
+    def user_object_from_credentials(
+            self, user_email: str, user_pwd: str) -> TypeVar('User'):
         """
         Retrieves user object based on email
         from user's authentication credentials.
