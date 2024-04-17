@@ -2,6 +2,7 @@
 """
 The base authentication module.
 """
+import os
 from flask import request
 from typing import List, TypeVar
 import fnmatch
