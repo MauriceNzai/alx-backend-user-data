@@ -3,7 +3,7 @@
 A module for authentication-related functions.
 """
 import bcrypt
-from uuid import uuid
+from uuid import uuid4
 from sqlalchemy.orm.exc import NoResultFound
 
 from db import DB
@@ -21,7 +21,7 @@ def _generate_uuid() -> str:
     """
     Generates a UUID.
     """
-    return str(uuid())
+    return str(uuid4())
 
 
 class Auth:
