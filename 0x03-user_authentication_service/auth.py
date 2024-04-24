@@ -4,6 +4,7 @@ A module for authentication-related functions.
 """
 import bcrypt
 from uuid import uuid4
+from typing import Union
 from sqlalchemy.orm.exc import NoResultFound
 
 from db import DB
