@@ -3,7 +3,10 @@
 A module for authentication-related functions.
 """
 import bcrypt
+from sqlalchemy.orm.exc import NoResultFound
 
+from db import DB
+from user import User
 
 
 def _hash_password(password: str) -> bytes:
